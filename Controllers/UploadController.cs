@@ -105,6 +105,6 @@ public class RecordsController : Controller
     public async Task<IActionResult> Index()
     {
         var records = await _context.Record.ToListAsync();
-        return View(records); // This will look for /Views/Records/Index.cshtml
+        return View(records); 
     }
 }
