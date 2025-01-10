@@ -1,0 +1,32 @@
+﻿@using CsvDatabase.Models
+@model IEnumerable<Record>
+
+@{
+    ViewData["Title"] = "Records List";
+}
+
+<h2>Saved Records</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Married</th>
+            <th>Phone Number</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var record in Model)
+        {
+            <tr>
+                <td>@record.Name</td>
+                <td>@record.BirthDay.ToShortDateString()</td>
+                <td>@record.Married</td>
+                <td>@record.PhoneNum</td>
+                <td>@record.Salary</td>
+            </tr>
+        }
+    </tbody>
+</table>

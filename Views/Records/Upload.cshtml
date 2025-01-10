@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Upload CSV";
+}
+
+<h2>Upload CSV</h2>
+
+<form asp-controller="Records" asp-action="Upload" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="file">Choose a CSV file:</label>
+        <input type="file" name="file" id="file" />
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+
+
+
+<p class="text-muted mt-2">
+    The DATE must be in the format: YYYY-MM-DD
+</p>
+
+
+
+
+
+
+
+
+
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div>
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p style="color:red;">@error.ErrorMessage</p>
+        }
+    </div>
+}
